@@ -1,0 +1,1 @@
+# ocr-rule-llm-receipt

@@ -1,0 +1,76 @@
+# ==============================
+# Python
+# ==============================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.Python
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# ==============================
+# Packaging / build
+# ==============================
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ==============================
+# OS / Editor
+# ==============================
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ==============================
+# Logs / reports
+# ==============================
+logs/
+reports/
+*.log
+
+# ==============================
+# Database / local state
+# ==============================
+*.sqlite3
+*.db
+*.db-journal
+
+# ==============================
+# Data (input / output)
+# ==============================
+data/inbox/
+data/originals/
+data/processed/
+
+
+# ==============================
+# Environment variables
+# ==============================
+.env
+.env.*
+
+# ==============================
+# Cache / temporary files
+# ==============================
+.cache/
+.ipynb_checkpoints/
+
+# ==============================
+# OCR / ML artifacts (future-proof)
+# ==============================
+models/
+checkpoints/
+*.onnx
+*.pt
+*.pth

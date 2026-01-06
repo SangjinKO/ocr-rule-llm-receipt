@@ -1,0 +1,19 @@
+pymupdf
+paddleocr # OCR engine for extracting text lines from receipt images
+# paddleocr==2.7.0.3          
+paddlepaddle>=3.0.0       # Core deep learning framework required by PaddleOCR
+
+
+Pillow>=10.0.0             # Image processing library for loading and handling image files
+pydantic>=2.5.0            # Data validation and structured schema modeling for extracted receipt data
+python-dateutil>=2.8.2     # Robust date parsing and normalization utilities
+
+streamlit==1.52.2 # Build a lightweight web UI for demonstrating
+
+python-dotenv>=1.0.0
+
+# python 3.9 or 3.10
+# pip install -r requirements.txt
+# ollama serve OR brew services start ollama
+# streamlit run app.py 
+# brew services stop ollama >> pkill ollama
