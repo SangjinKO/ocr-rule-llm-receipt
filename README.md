@@ -125,4 +125,5 @@ OCR_LANG=en
 ```bash
 streamlit run app.py
 ```
+<img width="855" height="329" alt="image" src="https://github.com/user-attachments/assets/4e2b6af9-b64a-45af-9565-60f344eb3e98" />
 
