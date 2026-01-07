@@ -77,17 +77,18 @@ def process_receipt(path: str | Path) -> Dict[str, Any]:
     try:
         # Pass OCR lines so model can cite indices (even if it sometimes doesn't)
         du_json = run_du_llm(ocr_text, rule_candidates, ocr_lines=line_texts)
-
-        # Ensure du_json is dict-like
-        if not isinstance(du_json, dict):
-            du_json = {"extracted": {}, "evidence": {}}
     except Exception as e:
-        du_error = f"{type(e).__name__}: {e}"
-        du_json = {"extracted": {}, "evidence": {}}
+        # FAIL FAST — do NOT continue
+        raise RuntimeError(f"LLM processing failed: {e}") from e
 
-    # extracted must be dict for fallback logic
+    # du_json must be dict
+    if not isinstance(du_json, dict):
+        raise RuntimeError("LLM returned non-dict output (invalid DU payload).")
+
+    # extracted must be dict
     extracted = du_json.get("extracted")
-    extracted = extracted if isinstance(extracted, dict) else {}
+    if not isinstance(extracted, dict):
+        raise RuntimeError("LLM output missing 'extracted' dict.")
 
     # 4) Fallbacks (only for extracted fields, NOT evidence)
     if not extracted.get("date"):

@@ -30,8 +30,11 @@ def _ollama_chat(
         headers={"Content-Type": "application/json"},
     )
 
-    with urllib.request.urlopen(req, timeout=120) as resp:
-        raw = resp.read().decode("utf-8")
+    try:
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            raw = resp.read().decode("utf-8")
+    except urllib.error.URLError as e:
+        raise RuntimeError(f"Ollama server is not reachable at {base_url} ({e})") from e
 
     obj = json.loads(raw)
     return obj["message"]["content"]
